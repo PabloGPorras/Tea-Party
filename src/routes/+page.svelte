@@ -1,13 +1,17 @@
 <script>
   import { onMount } from "svelte";
   import { page } from "$app/stores";
-
+  let access_token = "Click Get Access Token";
+  let code = "";
   const { url, param } = $page;
-  const code = url.searchParams.get("code");
+  if (url.searchParams.get("code") !== null) {
+    code = url.searchParams.get("code");
+    access_token = code.access_token;
+  }
 
   const apiBasedUrl = "https://ebay-backend-django.herokuapp.com";
   let data = "";
-  let orders = "";
+  let orders = "Click Grab Order";
   onMount(async () => {
     const res = await fetch(apiBasedUrl + "/ebay/");
     data = await res.json();
@@ -26,7 +30,7 @@
   >Get User Access Token
 </button>
 
-<h1>Access_token:{code}</h1>
+<h1>Access_token:{access_token}</h1>
 
 <button on:click={getOrders(code)}> Get Orders </button>
 
