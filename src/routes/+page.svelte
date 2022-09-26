@@ -7,11 +7,11 @@
   let expires_in = "Click Get Access Token";
   let refresh_token = "Click Get Access Token";
   let refresh_token_expire_in = "Click Get Access Token";
-  if (url.searchParams.get("access_token") !== null) {
-    access_token = url.searchParams.get("access_token");
-    expires_in = url.searchParams.get("expires_in");
-    refresh_token = url.searchParams.get("refresh_token");
-    refresh_token_expire_in = url.searchParams.get("refresh_token_expire_in");
+  if (url.searchParams.get("accessToken") !== null) {
+    access_token = url.searchParams.get("accessToken");
+    expires_in = url.searchParams.get("expiresIn");
+    refresh_token = url.searchParams.get("refreshToken");
+    refresh_token_expire_in = url.searchParams.get("refreshTokenExpireIn");
   }
 
   const apiBasedUrl = "https://ebay-backend-django.herokuapp.com";
