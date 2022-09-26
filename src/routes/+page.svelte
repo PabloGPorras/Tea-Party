@@ -30,6 +30,7 @@
   >Get User Access Token
 </button>
 
+<h1>code:{code}</h1>
 <h1>Access_token:{access_token}</h1>
 
 <button on:click={getOrders(code)}> Get Orders </button>
