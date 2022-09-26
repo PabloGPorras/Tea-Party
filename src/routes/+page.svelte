@@ -3,7 +3,7 @@
   import { page } from "$app/stores";
 
   const { url, param } = $page;
-  const code = url.searchParams.get("code").json();
+  const code = url.searchParams.get("code");
 
   const apiBasedUrl = "https://ebay-backend-django.herokuapp.com";
   let data = "";
@@ -14,7 +14,9 @@
   });
 
   const getOrders = async (code) => {
-    const res = await fetch(apiBasedUrl + `/ebay/${code}/getOrders/`);
+    const res = await fetch(
+      apiBasedUrl + `/ebay/${code.access_token}/getOrders/`
+    );
     orders = await res.json();
   };
 </script>
