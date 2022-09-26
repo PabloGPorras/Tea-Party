@@ -12,9 +12,14 @@
     const res = await fetch(apiBasedUrl + "/ebay/");
     data = await res.json();
   });
+
+  const getOrders = async (code) => {
+    const res = await fetch(apiBasedUrl + "/ebay/getUser/" + code);
+    data = await res.json();
+  };
 </script>
 
-<h1>{code}</h1>
+<h1>Access_token:{code}</h1>
 
 <h1>Clicky the linky ;)</h1>
 <h1>{data.signin_url}</h1>
@@ -23,5 +28,15 @@
   type="submit"
   name="action"
   onclick="window.location.href = '{data.signin_url}';"
-  >Submit
+  >Get User Access Token
 </button>
+
+<button
+  class="btn waves-effect waves-light btn-large"
+  type="submit"
+  name="action"
+  onclick={data.signin_url}
+  >Get Orders
+</button>
+
+<h1>orders:{orders}</h1>
