@@ -22,10 +22,8 @@
     data = await res.json();
   });
 
-  const getOrders = async (code) => {
-    const res = await fetch(
-      apiBasedUrl + `/ebay/${code.access_token}/getOrders/`
-    );
+  const getOrders = async (access_token) => {
+    const res = await fetch(apiBasedUrl + `/ebay/${access_token}/getOrders/`);
     orders = await res.json();
   };
 </script>
