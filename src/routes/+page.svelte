@@ -3,7 +3,7 @@
   import { page } from "$app/stores";
 
   const { url, param } = $page;
-  const code = url.searchParams.get("access_token");
+  const code = url.searchParams.get("code");
 
   const apiBasedUrl = "https://ebay-backend-django.herokuapp.com";
   let data = "";
