@@ -1,9 +1,9 @@
 <script>
   import { onMount } from "svelte";
-
   import { page } from "$app/stores";
+
   const { url, param } = $page;
-  const code = url.searchParams.get("code");
+  const code = url.searchParams.get("access_token");
 
   const apiBasedUrl = "https://ebay-backend-django.herokuapp.com";
   let data = "";
@@ -11,8 +11,6 @@
   onMount(async () => {
     const res = await fetch(apiBasedUrl + "/ebay/");
     data = await res.json();
-    console.log("Hello World2");
-    console.log(data.signin_url);
   });
 </script>
 
