@@ -1,12 +1,17 @@
 <script>
   import { onMount } from "svelte";
   import { page } from "$app/stores";
-  let access_token = "Click Get Access Token";
-  let code = "";
   const { url, param } = $page;
-  if (url.searchParams.get("code") !== null) {
-    code = url.searchParams.get("code");
-    access_token = code.access_token;
+
+  let access_token = "Click Get Access Token";
+  let expires_in = "Click Get Access Token";
+  let refresh_token = "Click Get Access Token";
+  let refresh_token_expire_in = "Click Get Access Token";
+  if (url.searchParams.get("access_token") !== null) {
+    access_token = url.searchParams.get("access_token");
+    expires_in = url.searchParams.get("expires_in");
+    refresh_token = url.searchParams.get("refresh_token");
+    refresh_token_expire_in = url.searchParams.get("refresh_token_expire_in");
   }
 
   const apiBasedUrl = "https://ebay-backend-django.herokuapp.com";
@@ -30,9 +35,11 @@
   >Get User Access Token
 </button>
 
-<h1>code:{code}</h1>
 <h1>Access_token:{access_token}</h1>
+<h1>expires_in:{expires_in}</h1>
+<h1>refresh_token:{refresh_token}</h1>
+<h1>refresh_token_expire_in:{refresh_token_expire_in}</h1>
 
-<button on:click={getOrders(code)}> Get Orders </button>
+<button on:click={getOrders(access_token)}> Get Orders </button>
 
 <h1>orders:{orders}</h1>
