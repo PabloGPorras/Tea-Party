@@ -3,7 +3,7 @@
   import { page } from "$app/stores";
 
   const { url, param } = $page;
-  const code = url.searchParams.get("code");
+  const code = url.searchParams.get("code").json();
 
   const apiBasedUrl = "https://ebay-backend-django.herokuapp.com";
   let data = "";
@@ -17,7 +17,6 @@
     const res = await fetch(apiBasedUrl + `/ebay/${code}/getOrders/`);
     orders = await res.json();
   };
-  //<button type="submit" onclick={getOrders(code)}>Get Orders </button>
 </script>
 
 <h1>{data.signin_url}</h1>
