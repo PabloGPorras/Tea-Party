@@ -4,7 +4,7 @@
   const { url, param } = $page;
 
   let code = "Click Get Access Token";
-  if (url.searchParams.get("accessToken") !== null) {
+  if (url.searchParams.get("code") !== null) {
     code = url.searchParams.get("code");
   }
 
