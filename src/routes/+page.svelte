@@ -7,6 +7,8 @@
   let expires_in = "Click Get Access Token";
   let refresh_token = "Click Get Access Token";
   let refresh_token_expire_in = "Click Get Access Token";
+  let access_token_hashed = "";
+  let refresh_token_hashed = "";
   if (url.searchParams.get("accessToken") !== null) {
     access_token_hashed = url.searchParams.get("accessToken");
     access_token = access_token_hashed.replace("PABLO_ROCKS", "#");
