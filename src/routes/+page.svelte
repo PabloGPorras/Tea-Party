@@ -8,10 +8,13 @@
   let refresh_token = "Click Get Access Token";
   let refresh_token_expire_in = "Click Get Access Token";
   if (url.searchParams.get("accessToken") !== null) {
-    access_token = url.searchParams.get("accessToken");
-    access_token = access_token.replace("PABLO_ROCKS", "#");
+    access_token_hashed = url.searchParams.get("accessToken");
+    access_token = access_token_hashed.replace("PABLO_ROCKS", "#");
+
+    refresh_token_hashed = url.searchParams.get("refreshToken");
+    refresh_token = refresh_token_hashed.replace("PABLO_ROCKS", "#");
+
     expires_in = url.searchParams.get("expiresIn");
-    refresh_token = url.searchParams.get("refreshToken");
     refresh_token_expire_in = url.searchParams.get("refreshTokenExpireIn");
   }
 
