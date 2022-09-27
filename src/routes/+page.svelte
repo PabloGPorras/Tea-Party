@@ -12,11 +12,12 @@
   if (url.searchParams.get("accessToken") !== null) {
     access_token_hashed = url.searchParams.get("accessToken");
     console.log("access_token_hashed: " + access_token_hashed);
-    access_token = access_token_hashed.replace("PABLO_ROCKS", "#");
+
+    access_token = access_token_hashed.replaceAll("PABLO_ROCKS", "#");
     console.log("access_token: " + access_token);
 
     refresh_token_hashed = url.searchParams.get("refreshToken");
-    refresh_token = refresh_token_hashed.replace("PABLO_ROCKS", "#");
+    refresh_token = refresh_token_hashed.replaceAll("PABLO_ROCKS", "#");
 
     expires_in = url.searchParams.get("expiresIn");
     refresh_token_expire_in = url.searchParams.get("refreshTokenExpireIn");
