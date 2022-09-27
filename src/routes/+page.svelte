@@ -11,10 +11,7 @@
   let refresh_token_hashed = "";
   if (url.searchParams.get("accessToken") !== null) {
     access_token_hashed = url.searchParams.get("accessToken");
-    console.log("access_token_hashed: " + access_token_hashed);
-
     access_token = access_token_hashed.replaceAll("PABLO_ROCKS", "#");
-    console.log("access_token: " + access_token);
 
     refresh_token_hashed = url.searchParams.get("refreshToken");
     refresh_token = refresh_token_hashed.replaceAll("PABLO_ROCKS", "#");
@@ -32,7 +29,9 @@
   });
 
   const getOrders = async (access_token) => {
-    const res = await fetch(apiBasedUrl + `/ebay/${access_token}/getOrders/`);
+    const res = await fetch(
+      apiBasedUrl + "/ebay/" + access_token + "/getOrders/"
+    );
     orders = await res.json();
   };
 </script>
