@@ -29,9 +29,9 @@
   });
 
   const getOrders = async (access_token) => {
-    const res = await fetch(
-      apiBasedUrl + "/ebay/" + access_token + "/getOrders/"
-    );
+    api_url = apiBasedUrl + "/ebay/" + access_token + "/getOrders/";
+    console.log("api_url: " + api_url);
+    const res = await fetch(api_url);
     orders = await res.json();
   };
 </script>
