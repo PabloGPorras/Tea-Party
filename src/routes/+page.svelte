@@ -12,12 +12,20 @@
   const apiBasedUrl = "https://ebay-backend-django.herokuapp.com";
   let data = "";
   let orders = "Click Grab Order";
+
+  /*
+  onMount(async () => {
+    code = await url.searchParams.get("code");
+  });
+  */
+
   onMount(async () => {
     const res = await fetch(apiBasedUrl + "/ebay/");
     data = await res.json();
   });
 
   const getOrders = async (code) => {
+    console.log("getOrders code: " + code);
     const res = await fetch(apiBasedUrl + "/ebay/" + code + "/getOrders/");
     orders = await res.json();
   };
