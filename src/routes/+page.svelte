@@ -6,6 +6,7 @@
   let code = "Click Get Access Token";
   if (url.searchParams.get("code") !== null) {
     code = url.searchParams.get("code");
+    console.log("code: " + code);
   }
 
   const apiBasedUrl = "https://ebay-backend-django.herokuapp.com";
