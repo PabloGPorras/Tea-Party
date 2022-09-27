@@ -3,22 +3,9 @@
   import { page } from "$app/stores";
   const { url, param } = $page;
 
-  let access_token = "Click Get Access Token";
-  let expires_in = "Click Get Access Token";
-  let refresh_token = "Click Get Access Token";
-  let refresh_token_expire_in = "Click Get Access Token";
-  let access_token_hashed = "";
-  let refresh_token_hashed = "";
-  let api_url = "";
+  let code = "Click Get Access Token";
   if (url.searchParams.get("accessToken") !== null) {
-    access_token_hashed = url.searchParams.get("accessToken");
-    access_token = access_token_hashed.replaceAll("PABLO_ROCKS", "#");
-
-    refresh_token_hashed = url.searchParams.get("refreshToken");
-    refresh_token = refresh_token_hashed.replaceAll("PABLO_ROCKS", "#");
-
-    expires_in = url.searchParams.get("expiresIn");
-    refresh_token_expire_in = url.searchParams.get("refreshTokenExpireIn");
+    code = url.searchParams.get("code");
   }
 
   const apiBasedUrl = "https://ebay-backend-django.herokuapp.com";
@@ -29,10 +16,8 @@
     data = await res.json();
   });
 
-  const getOrders = async (access_token) => {
-    api_url = apiBasedUrl + "/ebay/" + access_token + "/getOrders/";
-    console.log("api_url: " + api_url);
-    const res = await fetch(api_url);
+  const getOrders = async (code) => {
+    const res = await fetch(apiBasedUrl + "/ebay/" + code + "/getOrders/");
     orders = await res.json();
   };
 </script>
@@ -42,11 +27,8 @@
   >Get User Access Token
 </button>
 
-<h1>Access_token:{access_token}</h1>
-<h1>expires_in:{expires_in}</h1>
-<h1>refresh_token:{refresh_token}</h1>
-<h1>refresh_token_expire_in:{refresh_token_expire_in}</h1>
+<h1>code:{code}</h1>
 
-<button on:click={getOrders(access_token)}> Get Orders </button>
+<button on:click={getOrders(code)}> Get Orders </button>
 
 <h1>orders:{orders}</h1>
