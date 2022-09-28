@@ -3,10 +3,11 @@
   import { page } from "$app/stores";
   const { url, param } = $page;
 
-  let code = "Click Get Access Token";
-  if (url.searchParams.get("code") !== null) {
-    code = url.searchParams.get("code");
-    console.log("code: " + code);
+  let token = "Click Get Token";
+  if (url.searchParams.get("token") !== null) {
+    token_hashed = url.searchParams.get("token");
+    console.log("token: " + token_hashed);
+    token = token_hashed.replaceALL("PABLO_ROCKS", "#");
   }
 
   const apiBasedUrl = "https://ebay-backend-django.herokuapp.com";
@@ -24,9 +25,9 @@
     data = await res.json();
   });
 
-  const getOrders = async (code) => {
-    console.log("getOrders code: " + code);
-    let getOrdersUrl = apiBasedUrl + "/ebay/getOrders/?code=" + code;
+  const getOrders = async (token) => {
+    console.log("getOrders token: " + token);
+    let getOrdersUrl = apiBasedUrl + "/ebay/getOrders/?code=" + token;
     console.log("getOrdersUrl: " + getOrdersUrl);
 
     const res = await fetch(getOrdersUrl);
@@ -39,8 +40,8 @@
   >Get User Access Token
 </button>
 
-<h1>code:{code}</h1>
+<h1>token:{token}</h1>
 
-<button on:click={getOrders(code)}> Get Orders </button>
+<button on:click={getOrders(token)}> Get Orders </button>
 
 <h1>orders:{orders}</h1>
