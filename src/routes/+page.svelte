@@ -5,9 +5,9 @@
 
   let token = "Click Get Token";
   if (url.searchParams.get("token") !== null) {
-    token_hashed = url.searchParams.get("token");
+    let token_hashed = url.searchParams.get("token");
     console.log("token: " + token_hashed);
-    token = token_hashed.replaceALL("PABLO_ROCKS", "#");
+    token = token_hashed.replaceAll("PABLO_ROCKS", "#");
   }
 
   const apiBasedUrl = "https://ebay-backend-django.herokuapp.com";
