@@ -5,7 +5,7 @@
 
   let token = "Click Get Token";
   if (url.searchParams.get("code") !== null) {
-    let token = url.searchParams.get("code");
+    token = url.searchParams.get("code");
     console.log("token: " + token);
   }
 
