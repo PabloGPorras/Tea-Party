@@ -26,7 +26,7 @@
 
   const getOrders = async (code) => {
     console.log("getOrders code: " + code);
-    let getOrdersUrl = apiBasedUrl + "/ebay/" + code + "/getOrders/";
+    let getOrdersUrl = apiBasedUrl + "/ebay/getOrders/?" + code;
     console.log("getOrdersUrl: " + getOrdersUrl);
 
     const res = await fetch(getOrdersUrl);
