@@ -20,7 +20,8 @@
 
   const getOrders = async (token) => {
     let getOrdersUrl = apiBasedUrl + "/ebay/" + token + "/30/getOrders/";
-    orders = await fetch(getOrdersUrl);
+    const res = await fetch(getOrdersUrl);
+    orders = await res.json();
     console.log(orders);
   };
 
