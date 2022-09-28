@@ -5,7 +5,7 @@
 
   let token = "Click Get Token";
   if (url.searchParams.get("code") !== null) {
-    let token_hashed = url.searchParams.get("token");
+    let token_hashed = url.searchParams.get("code");
     console.log("token: " + token_hashed);
     token = token_hashed.replaceAll("PABLO_ROCKS", "#");
   }
