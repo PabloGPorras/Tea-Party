@@ -26,7 +26,7 @@
   };
 
   const getUsers = async (token) => {
-    let getOrdersUrl = apiBasedUrl + "/ebay/" + token + "/getUsers/";
+    let getOrdersUrl = apiBasedUrl + "/ebay/" + token + "/getUser/";
     const res = await fetch(getOrdersUrl);
     userData = await res.json();
     console.log(userData);
