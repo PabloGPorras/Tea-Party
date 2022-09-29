@@ -8,8 +8,7 @@
   let FeedbackScore = "";
 
   if (url.searchParams.get("sellerInfo") !== null) {
-    data = url.searchParams.get("sellerInfo");
-    sellerInfo = data.json();
+    sellerInfo = url.searchParams.get("sellerInfo");
     UserID = sellerInfo.UserID;
     Email = sellerInfo.Email;
     FeedbackScore = sellerInfo.FeedbackScore;
@@ -29,13 +28,6 @@
     const res = await fetch(getOrdersUrl);
     data = await res.json();
     orders = data.getOrders;
-  };
-
-  const getUser = async (token) => {
-    let getOrdersUrl = apiBasedUrl + "/ebay/" + token + "/getUser/";
-    const res = await fetch(getOrdersUrl);
-    data = await res.json();
-    userData = data.getUser;
   };
 </script>
 
