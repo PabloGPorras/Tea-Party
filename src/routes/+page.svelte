@@ -6,6 +6,7 @@
   let UserID = "";
   let Email = "";
   let FeedbackScore = "";
+  let visible = true;
 
   if (url.searchParams.get("sellerInfo") !== null) {
     data = url.searchParams.get("sellerInfo");
@@ -13,6 +14,7 @@
     UserID = sellerInfo.UserID;
     Email = sellerInfo.Email;
     FeedbackScore = "FeedbackScore: " + sellerInfo.FeedbackScore;
+    visible = !visible;
   }
 
   const apiBasedUrl = "https://ebay-backend-django.herokuapp.com";
@@ -37,11 +39,6 @@
     data = await res.json();
     userData = data.getUser;
   };
-
-  let visible = true;
-  function toggleVissible() {
-    visible = !visible;
-  }
 </script>
 
 <h1>{UserID}</h1>
@@ -49,10 +46,7 @@
 <h1>{FeedbackScore}</h1>
 
 {#if visible}
-  <button
-    on:click={toggleVissible}
-    type="submit"
-    onclick="window.location.href = '{data.signin_url}';"
+  <button type="submit" onclick="window.location.href = '{data.signin_url}';"
     >Login
   </button>
 {/if}
