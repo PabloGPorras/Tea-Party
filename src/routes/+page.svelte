@@ -37,12 +37,22 @@
     data = await res.json();
     userData = data.getUser;
   };
+
+  let visible = true;
+  function toggleVissible() {
+    visible = !visible;
+  }
 </script>
 
 <h1>{UserID}</h1>
 <h1>{Email}</h1>
 <h1>{FeedbackScore}</h1>
 
-<button type="submit" onclick="window.location.href = '{data.signin_url}';"
-  >Login
-</button>
+{#if visible}
+  <button
+    on:click={toggleVissible}
+    type="submit"
+    onclick="window.location.href = '{data.signin_url}';"
+    >Login
+  </button>
+{/if}
