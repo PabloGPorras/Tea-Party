@@ -3,10 +3,16 @@
   import { page } from "$app/stores";
   const { url, param } = $page;
 
-  let token = "Click Get Token";
-  if (url.searchParams.get("code") !== null) {
-    token = url.searchParams.get("code");
-    console.log("token: " + token);
+  let UserID = "";
+  let Email = "";
+  let FeedbackScore = "";
+
+  if (url.searchParams.get("sellerInfo") !== null) {
+    data = url.searchParams.get("sellerInfo");
+    sellerInfo = data.json();
+    UserID = sellerInfo.UserID;
+    Email = sellerInfo.Email;
+    FeedbackScore = "FeedbackScore: " + sellerInfo.FeedbackScore;
   }
 
   const apiBasedUrl = "https://ebay-backend-django.herokuapp.com";
@@ -33,14 +39,10 @@
   };
 </script>
 
-<h1>{data.signin_url}</h1>
+<h1>{UserID}</h1>
+<h1>{Email}</h1>
+<h1>{FeedbackScore}</h1>
+
 <button type="submit" onclick="window.location.href = '{data.signin_url}';"
-  >Get User Access Token
+  >Login
 </button>
-<h1>token:{token}</h1>
-
-<button on:click={getOrders(token)}> Get Orders </button>
-<h1>orders:{orders}</h1>
-
-<button on:click={getUser(token)}> Get User Data </button>
-<h1>orders:{userData}</h1>
