@@ -9,7 +9,10 @@
 
   if (url.searchParams.get("sellerInfo") !== null) {
     sellerInfo = url.searchParams.get("sellerInfo");
+    console.log(sellerIfno);
+    console.log("_______________________________");
     sellerInfo = JSON.parse(sellerInfo);
+    console.log(sellerIfno);
     UserID = sellerInfo.UserID;
     Email = sellerInfo.Email;
     FeedbackScore = sellerInfo.FeedbackScore;
