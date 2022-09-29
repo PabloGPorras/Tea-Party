@@ -45,8 +45,6 @@
 <h1>{Email}</h1>
 <h1>{FeedbackScore}</h1>
 
-{#if visible}
-  <button type="submit" onclick="window.location.href = '{data.signin_url}';"
-    >Login
-  </button>
-{/if}
+<button type="submit" onclick="window.location.href = '{data.signin_url}';"
+  >Login
+</button>
