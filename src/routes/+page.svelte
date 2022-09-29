@@ -6,15 +6,13 @@
   let UserID = "";
   let Email = "";
   let FeedbackScore = "";
-  let visible = true;
 
   if (url.searchParams.get("sellerInfo") !== null) {
     data = url.searchParams.get("sellerInfo");
     sellerInfo = data.json();
     UserID = sellerInfo.UserID;
     Email = sellerInfo.Email;
-    FeedbackScore = "FeedbackScore: " + sellerInfo.FeedbackScore;
-    visible = !visible;
+    FeedbackScore = sellerInfo.FeedbackScore;
   }
 
   const apiBasedUrl = "https://ebay-backend-django.herokuapp.com";
