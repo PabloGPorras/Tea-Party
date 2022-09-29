@@ -9,6 +9,7 @@
 
   if (url.searchParams.get("sellerInfo") !== null) {
     sellerInfo = url.searchParams.get("sellerInfo");
+    sellerInfo = JSON.parse(sellerInfo);
     UserID = sellerInfo.UserID;
     Email = sellerInfo.Email;
     FeedbackScore = sellerInfo.FeedbackScore;
