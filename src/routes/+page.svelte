@@ -21,15 +21,15 @@
   const getOrders = async (token) => {
     let getOrdersUrl = apiBasedUrl + "/ebay/" + token + "/30/getOrders/";
     const res = await fetch(getOrdersUrl);
-    orders = await res.json();
-    console.log(orders);
+    data = await res.json();
+    orders = data.getOrders;
   };
 
-  const getUsers = async (token) => {
+  const getUser = async (token) => {
     let getOrdersUrl = apiBasedUrl + "/ebay/" + token + "/getUser/";
     const res = await fetch(getOrdersUrl);
-    userData = await res.json();
-    console.log(userData);
+    data = await res.json();
+    userData = data.getUser;
   };
 </script>
 
@@ -42,5 +42,5 @@
 <button on:click={getOrders(token)}> Get Orders </button>
 <h1>orders:{orders}</h1>
 
-<button on:click={getUsers(token)}> Get User Data </button>
+<button on:click={getUser(token)}> Get User Data </button>
 <h1>orders:{userData}</h1>
