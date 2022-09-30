@@ -6,16 +6,16 @@
   let UserID = "";
   let Email = "";
   let FeedbackScore = "";
-
+  let sellerInfo = "";
   if (url.searchParams.get("sellerInfo") !== null) {
     sellerInfo = url.searchParams.get("sellerInfo");
-    console.log(sellerIfno);
-    console.log("_______________________________");
-    sellerInfo = JSON.parse(sellerInfo);
-    console.log(sellerIfno);
-    UserID = sellerInfo.UserID;
-    Email = sellerInfo.Email;
-    FeedbackScore = sellerInfo.FeedbackScore;
+    //console.log(sellerIfno);
+    //console.log("_______________________________");
+    //sellerInfo = JSON.parse(sellerInfo);
+    //console.log(sellerIfno);
+    //UserID = sellerInfo.UserID;
+    //Email = sellerInfo.Email;
+    //FeedbackScore = sellerInfo.FeedbackScore;
   }
 
   const apiBasedUrl = "https://ebay-backend-django.herokuapp.com";
@@ -38,7 +38,7 @@
 <h1>{UserID}</h1>
 <h1>{Email}</h1>
 <h1>{FeedbackScore}</h1>
-
+<h1>{sellerInfo}</h1>
 <button type="submit" onclick="window.location.href = '{data.signin_url}';"
   >Login
 </button>
